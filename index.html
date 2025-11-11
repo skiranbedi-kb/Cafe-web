@@ -2,192 +2,345 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cafe KLANG - Premium Coffee & Pastry</title>
-    <link rel="stylesheet" href="style1.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milton's Coffee</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9f6f2;
+            color: #3a2e2a;
+            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 90px;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e8dfd6;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 32px;
+            color: #3a2e2a;
+        }
+
+        header nav a {
+            margin: 0 18px;
+            text-decoration: none;
+            color: #3a2e2a;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+
+        header nav a:hover {
+            color: #c7a17a;
+        }
+
+        .hero {
+            padding: 150px 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('https://images.unsplash.com/photo-1512568400610-62da28bc8a13') center/cover no-repeat;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 70px 0;
+            gap: 55px;
+        }
+
+        .tabs button {
+            border: none;
+            background: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: #6b4b3e;
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .tabs button:hover {
+            color: #c7a17a;
+        }
+
+        .product-sec {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 80px;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+
+        .product-sec img {
+            width: 320px;
+            filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.2));
+            border-radius: 10px;
+        }
+
+        .product-details h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #3a2e2a;
+        }
+
+        .product-details p {
+            max-width: 420px;
+            margin-bottom: 22px;
+            font-size: 16px;
+            color: #5c4b45;
+        }
+
+        .btn {
+            padding: 14px 34px;
+            background: #3a2e2a;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            border-radius: 50px;
+            transition: 0.4s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background: #c7a17a;
+            color: #3a2e2a;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 120px;
+            padding: 100px;
+            background: #f1ebe4;
+            text-align: center;
+            flex-wrap: wrap;
+            border-top: 1px solid #e8dfd6;
+            border-bottom: 1px solid #e8dfd6;
+        }
+
+        .features div img {
+            filter: grayscale(30%);
+        }
+
+        .features div h3 {
+            font-size: 21px;
+            margin-top: 12px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .popular {
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .popular h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        .popular-cards {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #e5ddd3;
+            padding: 40px;
+            width: 250px;
+            text-align: center;
+            border-radius: 14px;
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h4 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .card p {
+            margin-bottom: 22px;
+            color: #5c4b45;
+            font-size: 16px;
+        }
+
+        .subscribe {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 100px;
+            gap: 25px;
+            text-align: center;
+            background: #f9f6f2;
+        }
+
+        .subscribe h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+        }
+
+        .subscribe input {
+            padding: 16px;
+            width: 360px;
+            border-radius: 50px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        footer {
+            background: #3a2e2a;
+            color: #fff;
+            padding: 100px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        footer h3,
+        footer h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 14px;
+        }
+
+        footer p {
+            font-size: 15px;
+            line-height: 1.8;
+        }
+    </style>
 </head>
 
 <body>
-
-    <header class="hero-section" id="home">
-        <nav class="navbar">
-            <div class="logo">Cafe KLANG</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <header>
+        <div class="logo">MILTON'S</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Menu</a>
+            <a href="#">Deals</a>
+            <a href="#">Favourite</a>
         </nav>
-
-        <div class="hero-content">
-            <div class="intro-box">
-                <p>We Started Since</p>
-                <span>2009</span>
-            </div>
-
-            <div class="about-us">
-                <h1>Cafe Klang</h1>
-                <p>The old-fashioned coffee shop next to the main square. We offer premium coffee, tea and great pastry
-                    since 2009. We aim to create a community where everyone can feel welcome.</p>
-                <a href="#menu" class="btn">View Menu</a>
-                <img src="./c1.jpg" alt="Baker" class="profile-pic">
-            </div>
-        </div>
     </header>
 
-    <section class="content-section menu-section" id="menu">
-        <h2>Our Signature Menu</h2>
-
-        <div class="menu-container">
-            <div class="menu-column">
-                <h3>Breakfast Delights</h3>
-                <div class="menu-item">
-                    <span class="item-name">Classic Pancakes</span>
-                    <span class="item-price">$8.99</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Avocado Toast</span>
-                    <span class="item-price">$9.50</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Waffles & Syrup</span>
-                    <span class="item-price">$7.00</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Fresh Croissant</span>
-                    <span class="item-price">$3.50</span>
-                </div>
-            </div>
-
-            <div class="menu-column">
-                <h3>Coffee Specials</h3>
-                <div class="menu-item">
-                    <span class="item-name">Latte Coffee</span>
-                    <span class="item-price">$4.50</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Espresso Shot</span>
-                    <span class="item-price">$3.00</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Caramel Macchiato</span>
-                    <span class="item-price">$5.25</span>
-                </div>
-                <div class="menu-item">
-                    <span class="item-name">Cold Brew</span>
-                    <span class="item-price">$4.75</span>
-                </div>
-            </div>
-        </div>
-        <a href="#" class="btn order-btn" id="openModalBtn">Order Now</a>
+    <section class="hero">
+        <h1>IT'S A BREAK WITH COFFEE</h1>
+        <p>Enjoy the rich and delightful taste</p>
     </section>
 
-    <section class="content-section testimonials-section" id="testimonials">
-        <h2>What Our Customers Say</h2>
-        <div class="slider-container">
-            <div class="testimonial-slider">
+    <div class="tabs">
+        <button>COFFEE</button>
+        <button>ICE TEA</button>
+        <button>BEVERAGE</button>
+        <button>JUICES</button>
+    </div>
 
-                <div class="testimonial-card">
-                    <p>"The best latte in town, hands down! The atmosphere is cozy and the pastry chef's croissants are
-                        perfection."</p>
-                    <h4>— Alex M.</h4>
-                </div>
+    <section class="product-sec">
+        <img src="./C3.jpg" alt="Coffee Cup" />
+        <div class="product-details">
+            <h2>MILTON'S CHOCO COFFEE - $12</h2>
+            <p>Chocolate coffee with a rich mocha flavor, served hot or iced.</p>
+            <button class="btn">ADD TO CART</button>
+        </div>
+    </section>
 
-                <div class="testimonial-card">
-                    <p>"Cafe KLANG is my go-to spot for remote work. Great Wi-Fi, endless coffee refills, and super
-                        friendly staff."</p>
-                    <h4>— Samantha L.</h4>
-                </div>
+    <section class="features">
+        <div><img width="60" src="./hand.png" />
+            <h3>Hand Roasted</h3>
+        </div>
+        <div><img width="60" src="https://img.icons8.com/ios/100/6b4b3e/coffee-to-go.png" />
+            <h3>Direct Trade</h3>
+        </div>
+        <div><img width="60" src="https://img.icons8.com/ios/100/6b4b3e/organic-food.png" />
+            <h3>Organic Taste</h3>
+        </div>
+    </section>
 
-                <div class="testimonial-card">
-                    <p>"I love that they focus on local, ethically sourced beans. You can truly taste the quality in
-                        every cup."</p>
-                    <h4>— Ben K.</h4>
-                </div>
-
+    <section class="popular">
+        <h2>OUR POPULAR FLAVOURS</h2>
+        <div class="popular-cards">
+            <div class="card">
+                <h4>Choco Latte</h4>
+                <p>$12</p><button class="btn">ADD TO CART</button>
             </div>
-            <div class="slider-dots">
+            <div class="card">
+                <h4>Caramel Brew</h4>
+                <p>$13</p><button class="btn">ADD TO CART</button>
+            </div>
+            <div class="card">
+                <h4>Espresso Shot</h4>
+                <p>$10</p><button class="btn">ADD TO CART</button>
             </div>
         </div>
     </section>
 
-    <section class="content-section team-section" id="team">
-        <h2>Meet Our People</h2>
-        <div class="team-container">
-
-            <div class="person-card">
-                <img src="./pexels-linkedin-2182970.jpg" alt="Coffee Shop Owner" class="profile-pic">
-                <h3>John Doe</h3>
-                <p>Owner & Head Roaster</p>
-            </div>
-
-            <div class="person-card">
-                <img src="./pexels-olly-774909.jpg" alt="Barista" class="profile-pic">
-                <h3>Jane Smith</h3>
-                <p>Lead Barista</p>
-            </div>
-
-            <div class="person-card">
-                <img src="./pexels-italo-melo-881954-2379004.jpg" alt="Baker" class="profile-pic">
-                <h3>Mark Wilson</h3>
-                <p>Pastry Chef</p>
-            </div>
-
-            <div class="person-card">
-                <img src="./pexels-emilygarland-1499327.jpg" alt="Manager" class="profile-pic">
-                <h3>Sarah Lee</h3>
-                <p>Shop Manager</p>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="content-section contact-section" id="contact">
-        <h2>Visit Us</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Get in Touch</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Coffee Lane, Central Square, KL</p>
-                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
-                <p><i class="fas fa-envelope"></i> info@cafeklang.com</p>
-
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-
-            <form class="contact-form">
-                <h3>Send a Message</h3>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message"></textarea>
-                <button type="submit" class="btn submit-btn">Send Message</button>
-            </form>
-        </div>
+    <section class="subscribe">
+        <h2>Get Updates & Offer Alerts</h2>
+        <input type="email" placeholder="Your Email..." />
+        <button class="btn">SUBSCRIBE</button>
     </section>
 
     <footer>
-        <p>&copy; 2025 Cafe KLANG. All rights reserved.</p>
+        <div>
+            <h3>MILTON'S</h3>
+            <p>Quality coffee crafted with passion and care.</p>
+        </div>
+        <div>
+            <h4>Pages</h4>
+            <p>Home<br>Menu<br>Deals<br>Favourite</p>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p>123 Coffee Street<br>+123 4567 890<br>info@miltons.com</p>
+        </div>
     </footer>
 
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h3>Place Your Order</h3>
-            <p>You can easily place an order for pickup by calling us:</p>
-            <h4 class="phone-number">(555) 123-4567</h4>
-            <p>Or visit our third-party delivery site:</p>
-            <a href="#" class="btn modal-link">Go to Delivery Site</a>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 
 </html>
